@@ -5,3 +5,28 @@
   justify-content: center;
   padding: 20px;
 }
+.header{
+    
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #4589e9;
+  color: #ffffff;
+ 
+}
+
+.header {
+  margin: 0;
+  font-size: 24px;
+}
+
+.input {
+  width: 280px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+

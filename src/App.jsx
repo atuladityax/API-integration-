@@ -1,24 +1,42 @@
 import { useEffect, useState } from "react";
-import { getUser } from "./api/app";
+import { getUser , getProduct } from "./api/app";
 import "./App.css";
 import Usercard from "./components/Usercard";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [product, setProduct] = useState([]);
+  const [search , setSearch] = useState("");
 
   useEffect(() => {
-    getUser().then((data) => setUser(data.users));
-  });
-  return <>
-  <div className="card-list">
+    const timer = setTimeout(() => {
+      if (search === "") {
+        getUser().then((data) => setProduct(data.products));
+      } else {
+        getProduct(search).then((data) => setProduct(data.products));
+      }
+    }, 500);
 
-    {user?.map((u) => (
-    <Usercard key={u.id} user={u} />
-))}
+    return () => clearTimeout(timer);
+  }, [search]);
+  return (
+    <>
+      <div className="nav">
+       <h1 className="header">Product List </h1>
+       <input type="text" 
+       className="input"
+       placeholder="Search Product"
+       value={search}
+        onChange={(e) => setSearch(e.target.value)}
+       />
+      </div>
 
-  </div>
-       
-    </>;
+      <div className="card-list">
+        {product.map((p) => (
+          <Usercard key={p.id} product={p} />
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default App;

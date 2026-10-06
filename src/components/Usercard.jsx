@@ -1,28 +1,28 @@
 
 import "../components/Usercard.css"
-const Usercard = ({user}) => {
+const Usercard = ({product}) => {
   return (
-   <div className="user-card">
-      <h3 className="user-card__name">
-        {user.firstName} {user.lastName}
+   <div className="product-card">
+      <h3 className="product-card__name">
+        {product.title}
       </h3>
 
-      <div className="user-card__info">
+      <div className="product-card__info">
         <p>
-          <span className="label">Age </span>
-          <span>{user.age}</span>
+          <span className="label">category </span>
+          <span>{product.category}</span>
         </p>
         <p>
-          <span className="label">Gender </span>
-          <span>{user.gender}</span>
+          <span className="label">stock </span>
+          <span>{product.stock}</span>
         </p>
         <p>
-          <span className="label">Birthdate </span>
-          <span>{user.birthDate}</span>
+          <span className="label">price </span>
+          <span>{product.price}</span>
         </p>
         <p>
-          <span className="label">Location </span>
-          <span>{user.address.city}, {user.address.state}</span>
+          <span className="label des "></span>
+          <span>{product.description}</span>
         </p>
       </div>
     </div>
